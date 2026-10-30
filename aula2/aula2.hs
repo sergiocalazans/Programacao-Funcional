@@ -30,7 +30,7 @@ positivos (h:t)
 
 -- Exercicio 1
 depositar :: Int -> Int -> Int
-depositar saldo valor = ((div saldo 100) + (div valor 100)) * 100
+depositar saldo valor = saldo + valor
 
 -- Exercicio 2
 tamanho :: [a] -> Int
