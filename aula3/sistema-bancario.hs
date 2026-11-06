@@ -87,8 +87,11 @@ aplicarJuros percentual = map (\saldo -> saldo + div (saldo * percentual) 100)
 saquesAcimaDe :: Int -> [Int] -> [Int]
 saquesAcimaDe limite = filter (\valor -> valor > limite)
 
+totalDepositado :: [Int] -> Int
+totalDepositado lista = foldr (+) 0 (filter ehDeposito lista)
 
-
+saldoFinal :: Int -> [Int] -> Int
+saldoFinal inicial lista = foldr aplicar inicial lista
 
 main :: IO ()
 main = do
@@ -143,3 +146,5 @@ main = do
   print (map (\saldo -> saldo + saldo `div` 100) saldos) -- Calcular o rendimento de todos os saldos
 
   print (map rendimento saldos) -- Calcular o rendimento de todos os saldos usando a função rendimento
+
+  print (foldr (+) 0 saldos) -- Somar todos os saldos
